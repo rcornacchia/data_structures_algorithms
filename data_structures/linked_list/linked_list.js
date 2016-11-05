@@ -5,12 +5,14 @@ class node {
     }
 }
 
-const printList(node) {
-    console.log('[' + node.value + '] --->');
+function printList(node) {
+    process.stdout.write('[' + node.data + '] --->');
+    node = node.next;
     while(node) {
-        console.log(' ---> [' + node.value + ']');
+        process.stdout.write(' ---> [' + node.data + ']');
         node = node.next;
     }
+    console.log('');
 }
 
 const first = new node(1);
