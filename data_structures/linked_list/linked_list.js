@@ -15,11 +15,25 @@ function printList(node) {
     console.log('');
 }
 
+function appendEnd(curr, node) {
+    while(curr && curr.next) {
+        curr = node.next;
+    }
+    curr = node;
+}
+
 const first = new node(1);
 const second = new node(2);
 const third = new node(3);
+const fourth = new node(4);
+const fifth = new node(5);
+const sixth = new node(6);
 
 first.next = second;
 second.next = third;
+third.next = fourth;
+fourth.next = fifth;
+
+appendEnd(first, sixth);
 
 printList(first);
