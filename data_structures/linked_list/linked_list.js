@@ -6,7 +6,7 @@ class node {
 }
 
 function printList(node) {
-    process.stdout.write('[' + node.data + '] --->');
+    process.stdout.write('[' + node.data + ']');
     node = node.next;
     while(node) {
         process.stdout.write(' ---> [' + node.data + ']');
@@ -33,7 +33,7 @@ first.next = second;
 second.next = third;
 third.next = fourth;
 fourth.next = fifth;
-
-appendEnd(first, sixth);
+fifth.next = sixth;
+// appendEnd(first, sixth);
 
 printList(first);
