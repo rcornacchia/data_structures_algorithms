@@ -6,10 +6,10 @@ typedef struct node {
     struct node *next;
 } node;
 
-void printList(node *n) {
+void printList(struct node *n) {
     if (n != NULL) {
         printf("[%d]-->", n->data);
-        if (n->next != NULL) printList(n->next);
+        printList(n->next);
     }
 }
 
@@ -25,12 +25,14 @@ int main() {
 
     if (first == NULL
     || second == NULL
-    || third == NULL) return 1;
+    || third  == NULL) return 1;
     
 
     first->data = 1;
     first->next = second;
     second->data = 2;
     second->next = third;
+    third->data = 3;
+    third->next = NULL;
     printList(first);
 }

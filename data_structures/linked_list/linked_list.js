@@ -1,7 +1,7 @@
 class node {
     constructor(data, next) {
         this.data = data;
-        this.next = next || undefined;
+        this.next = next || null;
     }
 }
 
@@ -22,6 +22,15 @@ function appendEnd(curr, node) {
     curr = node;
 }
 
+function reverseList(node) {
+    if (!node.next) {
+        console.log(node.data);
+    } else {
+        reverseList(node.next);
+        console.log(node.data);
+    }
+}
+
 const first = new node(1);
 const second = new node(2);
 const third = new node(3);
@@ -37,3 +46,5 @@ fifth.next = sixth;
 // appendEnd(first, sixth);
 
 printList(first);
+
+reverseList(first);
