@@ -25,7 +25,8 @@ function insertNode(treeNode, node) {
 }
 
 function printTree(treeNode) {
-    
+    // calculate the number of levels needed
+
 }
 
 function BFS(treeNode) {

@@ -1,8 +1,4 @@
 var findMedianSortedArrays = function(nums1, nums2) {
-    console.log(nums1);
-    console.log(nums2);
-    console.log(nums);
-    console.log('----------');
     var counter1 = 0, counter2 = 0;
     var nums = [], result;
     while(nums1.length !== 0 || nums2.length !== 0) {
@@ -15,10 +11,6 @@ var findMedianSortedArrays = function(nums1, nums2) {
             if(y !== 0) nums.push(y);
             nums2.shift();
         }
-        console.log(nums1);
-        console.log(nums2);
-        console.log(nums);
-        console.log('----------');
     }
     var halfway = parseInt(nums.length / 2);
     if (nums.length % 2 !== 0) {
@@ -27,7 +19,6 @@ var findMedianSortedArrays = function(nums1, nums2) {
         result = (nums[halfway - 1] + nums[halfway]) / 2;
     }
 
-    console.log(result);
     return result;
 };
 
