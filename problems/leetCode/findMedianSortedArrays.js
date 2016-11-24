@@ -1,25 +1,30 @@
-var findMedianSortedArrays = function(nums1, nums2) {
-    var counter1 = 0, counter2 = 0;
-    var nums = [], result;
-    while(nums1.length !== 0 || nums2.length !== 0) {
-        var x = nums1[0] || 0;
-        var y = nums2[0] || 0;
-        if (x < y && nums1.length !== 0) {
-            if (x !== 0) nums.push(x);
-            nums1.shift();
+const findMedianSortedArrays = (nums1, nums2) => {
+    // create one sorted array
+    const arr = [];
+    while (nums1.length != 0 || nums2.length != 0) {
+        if (nums1.length == 0) {
+            arr.push(...nums2);
+            nums2 = [];
+        }
+        else if (nums2.length == 0) {
+            arr.push(...nums1);
+            nums1 = [];
+        }
+        else if (nums1[0] > nums2[0]) {
+            // take from b
+            const x = nums2.shift();
+            arr.push(x);
         } else {
-            if(y !== 0) nums.push(y);
-            nums2.shift();
+            // take from a
+            const x = nums1.shift();
+            arr.push(x);
         }
     }
-    var halfway = parseInt(nums.length / 2);
-    if (nums.length % 2 !== 0) {
-        result = nums[halfway];
-    } else {
-        result = (nums[halfway - 1] + nums[halfway]) / 2;
-    }
+    console.log(arr);
 
-    return result;
+    // return halfway point of array
+    if (arr.length % 2 == 0) return arr[parseInt(arr.length/2)];
 };
 
-findMedianSortedArrays([1, 2], [3,4]);
+const result = findMedianSortedArrays([1, 2, 5], [3,4, 7, 8]);
+console.log(result);
