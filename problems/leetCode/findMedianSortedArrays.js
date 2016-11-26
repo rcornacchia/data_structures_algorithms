@@ -24,7 +24,7 @@ const findMedianSortedArrays = (nums1, nums2) => {
 
     // return halfway point of array
     if (arr.length % 2 != 0) return arr[parseInt(arr.length/2)];
-    else return (arr[parseInt(arr.length/2)] + arr[parseInt(arr.length/2) + 1]/2);
+    else return ((arr[parseInt(arr.length/2)] + arr[parseInt(arr.length/2) - 1])/2);
 };
 
 const result = findMedianSortedArrays([1, 2, 5], [3,4, 7]);
