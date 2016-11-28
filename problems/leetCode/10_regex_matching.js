@@ -11,6 +11,9 @@ var isMatch = function(s, p) {
     let j  = 0;
 
     while (i < s.length || j < p.length) {
+        console.log(i + ", " + j);
+        console.log(s[i] + ", " + p[j]);
+        console.log("");
         if (s[i] === "." || p[j] === ".") {
             if (s[i + 1] === "*") {
                 if (!s[i + 2]) return true;
@@ -37,11 +40,13 @@ var isMatch = function(s, p) {
                 j += 1;
             }
         } else if (s[i] !== p[j]) {
-            // a*ab, aaab
+            // aaab, a*ab
             if (s[i-1] === "*" && p[j-1] === s[i]) {
+                console.log("testa");
                 i += 1;
                 j += 1;
             } else if (p[j-1] === "*" && s[i-1] === p[j]) {
+                console.log("test");
                 i += 1;
                 j += 1;
             }
@@ -69,3 +74,4 @@ var isMatch = function(s, p) {
 // console.log(isMatch(".*ba", "aaa"));         // false
 // console.log(isMatch("aaa", "aaaa"));         // false
 // console.log(isMatch("aaa", "a.a"));          // true
+console.log(isMatch("a", "ab*a"));              // false
