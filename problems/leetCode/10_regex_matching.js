@@ -13,7 +13,6 @@ var isMatch = function(s, p) {
     while (i < s.length || j < p.length) {
         console.log(i + ", " + j);
         console.log(s[i] + ", " + p[j]);
-        console.log("");
         if (s[i] === "." || p[j] === ".") {
             if (s[i + 1] === "*") {
                 if (!s[i + 2]) return true;
@@ -41,6 +40,7 @@ var isMatch = function(s, p) {
             }
         } else if (s[i] !== p[j]) {
             // aaab, a*ab
+            // a, ab*a
             if (s[i-1] === "*" && p[j-1] === s[i]) {
                 console.log("testa");
                 i += 1;
