@@ -1,0 +1,2 @@
+const hash_table = [];
+

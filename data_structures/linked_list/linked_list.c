@@ -13,6 +13,14 @@ void printList(struct node *n) {
     }
 }
 
+void appendEnd(node *n, struct node *new) {
+    if (n != NULL) {
+        if (n->next == NULL) {
+            n->next = new;
+        } else appendEnd(n->next, new);
+    }
+}
+
 int main() {
     node *head = NULL;
     node *first = NULL;
@@ -23,16 +31,18 @@ int main() {
     second = malloc(sizeof(node));
     third = malloc(sizeof(node));
 
-    if (first == NULL
-    || second == NULL
-    || third  == NULL) return 1;
-    
+    if (first == NULL || second == NULL || third  == NULL) return 1;
+
+    head = first;
 
     first->data = 1;
-    first->next = second;
+    first->next = NULL;
     second->data = 2;
-    second->next = third;
+    second->next = NULL;
     third->data = 3;
     third->next = NULL;
+
+    appendEnd(head, second);
+    appendEnd(head, third);
     printList(first);
 }
