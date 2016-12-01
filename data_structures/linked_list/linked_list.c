@@ -21,6 +21,14 @@ void appendEnd(node *n, struct node *new) {
     }
 }
 
+void deleteNode(node *n, int i) {
+    node *prev = n;
+    while (n != NULL && n->data != i) {
+        prev = n;
+        
+    }
+}
+
 int main() {
     node *head = NULL;
     node *first = NULL;

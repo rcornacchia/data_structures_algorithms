@@ -11,11 +11,11 @@ const findMedianSortedArrays = (nums1, nums2) => {
             nums1 = [];
         }
         else if (nums1[0] > nums2[0]) {
-            // take from b
+            // take from nums2
             const x = nums2.shift();
             arr.push(x);
         } else {
-            // take from a
+            // take from nums1
             const x = nums1.shift();
             arr.push(x);
         }
