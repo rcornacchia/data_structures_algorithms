@@ -23,10 +23,12 @@ void appendEnd(node *n, struct node *new) {
 
 void deleteNode(node *n, int i) {
     node *prev = n;
-    while (n != NULL && n->data != i) {
+    while (n->next != NULL && n->data != i) {
         prev = n;
-        
+        n = n->next;
     }
+    prev = n->next;
+    free(n);
 }
 
 int main() {
@@ -52,5 +54,7 @@ int main() {
 
     appendEnd(head, second);
     appendEnd(head, third);
+    printList(first);
+    deleteNode(head, 3);
     printList(first);
 }
