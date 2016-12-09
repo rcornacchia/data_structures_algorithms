@@ -13,6 +13,12 @@ var isMatch = function(s, p) {
     while (i < s.length || j < p.length) {
         console.log(i + ", " + j);
         console.log(s[i] + ", " + p[j]);
+
+        if (s[i] === s[j]) {
+            // check to see if the next char is *
+            
+        }
+
         if (s[i] === "." || p[j] === ".") {
             if (s[i + 1] === "*") {
                 if (!s[i + 2]) return true;
