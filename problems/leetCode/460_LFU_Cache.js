@@ -6,9 +6,25 @@
 // For the purpose of this problem, when there is a tie (i.e., two or more keys that have the same frequency),
 // the least recently used key would be evicted.
 
-// Example
-// LFUCache cache = new LFUCache( 2 /* capacity */ );
-//
+class LFUCache {
+    constructor(capacity) {
+        this.capacity = capacity;
+        this.stack = [];
+    }
+
+    get(key) {
+
+    }
+
+    set(key, value) {
+        if (this.stack.length < capacity) {
+            this.stack.push()
+        }
+    }
+}
+
+const cache = new LFUCache(2);
+
 // cache.set(1, 1);
 // cache.set(2, 2);
 // cache.get(1);       // returns 1

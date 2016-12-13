@@ -22,14 +22,28 @@ function appendEnd(curr, node) {
     curr = node;
 }
 
-function reverseList(node) {
-    if (!node.next) {
-        console.log(node.data);
-    } else {
-        reverseList(node.next);
-        console.log(node.data);
+function reverseList(head) {
+    let reverse = null;
+    let current = head;
+
+    while(current != null){
+        const next = current.next;
+        current.next = reverse;
+        reverse = current;
+        current = next;
     }
+
+    head = reverse;
 }
+
+// function reverseList(node) {
+//     if (!node.next) {
+//         console.log(node.data);
+//     } else {
+//         reverseList(node.next);
+//         console.log(node.data);
+//     }
+// }
 
 const first = new node(1);
 const second = new node(2);
@@ -48,3 +62,4 @@ fifth.next = sixth;
 printList(first);
 
 reverseList(first);
+printList(first);

@@ -11,6 +11,20 @@ void printList(struct node *n) {
         printf("[%d]-->", n->data);
         printList(n->next);
     }
+    printf("\n");
+}
+
+node *search_list(node *l, int x) {
+    if (l == NULL) return NULL;
+    if (l->data == x) return l;
+    else return(search_list(l->next, x));
+}
+
+void appendStart(node **n, int x) {
+    node *p = malloc(sizeof(node));
+    p->data = x;
+    p->next = *n;
+    *n = p;
 }
 
 void appendEnd(node *n, struct node *new) {
