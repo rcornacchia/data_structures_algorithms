@@ -16,6 +16,14 @@ class Point {
 
 function solveMaze(maze, rows, columns, exitRow, exitColumn) {
     const start = new Point(0, 0);
+    const queue = [start];
+    maze[0][0] = 2;
+
+    while (queue.length > 0) {
+        const curr = queue.shift();
+
+    }
+
     console.log(start);
 }
 
