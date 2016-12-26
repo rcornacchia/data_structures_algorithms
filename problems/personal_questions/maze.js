@@ -28,14 +28,11 @@ function solveMaze(maze, rows, columns, exitRow, exitColumn) {
         queue.push(new Point(curr.x-1, curr.y, curr));
 
         if (curr.x == exitRow && curr.y == exitColumn) {
-            for (row in maze) {
-                console.log(maze[row]);
-            }
+            for (row in maze) console.log(maze[row]);
+
             let pred = curr.predecessor;
             let length = 0;
-
             while (pred != null) {
-                console.log(pred);
                 length += 1;
                 pred = pred.predecessor;
             }
