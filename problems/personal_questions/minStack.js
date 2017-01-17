@@ -6,7 +6,7 @@ class Node {
     }
 }
 
-function minStack() {
+class minLinkedListStack {
     constructor() {
         this.tail = null;
     }
@@ -18,7 +18,7 @@ function minStack() {
         } else {
             node.min = this.tail.min;
         }
-        this.node.next = this.tail;
+        node.next = this.tail;
         this.tail = node;
     }
 
@@ -32,6 +32,48 @@ function minStack() {
     }
 }
 
-let node = new Node(3, null);
+class minNode {
+    constructor(data, min) {
+        this.data = data;
+        this.min = min;
+    }
+}
 
-console.log(node);
+class minStack {
+    constructor() {
+        this.stack = [];
+    }
+
+    push(data) {
+        let min;
+
+        if (!this.stack.length) min = data;
+        else {
+            min = this.stack[this.stack.length-1].min;
+            if (data < min) min = data;
+        }
+
+        this.stack.push({data, min});
+    }
+
+    pop() {
+        this.stack.pop();
+    }
+
+    getMin() {
+        return this.stack[this.stack.length-1].min;
+    }
+}
+
+// const stack = new minLinkedListStack();
+const stack = new minStack();
+stack.push(3);
+stack.push(4);
+stack.push(5);
+stack.push(1);
+stack.pop();
+
+const min = stack.getMin();
+
+
+console.log(min);
