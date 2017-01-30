@@ -1,14 +1,10 @@
 // reverse a string
 function recursiveReverse(string) {
-    if (string === undefined || !string) return;
+    if (string === undefined || !string) return '';
 
     const first = string[0];
     const rest = string.substring(1);
-    if (rest === undefined) {
-        first = '';
-        console.log(first);
-    }
-    console.log(first);
+
     return recursiveReverse(rest) + first;
 }
 

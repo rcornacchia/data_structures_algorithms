@@ -86,7 +86,6 @@ function getCarrots(garden) {
             if(!!greatestPoint && greatest !== 0) queue.push(greatestPoint);
         }
     }
-    console.log(carrots);
     return carrots;
 }
 
