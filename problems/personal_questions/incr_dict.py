@@ -1,43 +1,31 @@
+from collections import deque
+
 dct = {}
+
 def incr_dict(dct, args):
-    # print dct
-    x = {}
-    for index in range(len(args)):
-        node = args[index]
-        if index == len(args)-1:
-            if(len(x.keys())):
-                x[node] += 1
+    nodes = deque(args)
+    curr = dct
+    while nodes:
+        node = nodes.popleft()
+        if node in curr.keys():
+            if len(nodes) == 0:
+                curr[node] += 1
             else:
-                x[node] = 1
+                curr = curr[node]
         else:
-            if (len(dct.keys())):
-                x[node] = {}
-                x = x[node]
+            if len(nodes) == 0:
+                curr[node] = 1
             else:
-                if (len(dct.keys())):
-                    x = dct[node];
-                    print x
-                else:
-                    dct[node] = {}
-                    x = dct[node]
-                print dct
-        # print dct
-
-    # a = nodes[0]
-    # dct[a] = {}
-    # b = nodes[1]
-    # dct[a][b] = {}
-    # x = dct[a][b]
-    # c = nodes[2]
-    #
-    # x[c] = 1
-    # print dct
-
-
+                curr[node] = {}
+                curr = curr[node]
+    print dct
 
 
 incr_dict(dct, ('a', 'b', 'c'))
 incr_dict(dct, ('a', 'b', 'c'))
+incr_dict(dct, ('a', 'b', 'f'))
+incr_dict(dct, ('a', 'r', 'f'))
+incr_dict(dct, ('a', 'z'))
 
 
 
