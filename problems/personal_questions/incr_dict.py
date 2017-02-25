@@ -1,6 +1,5 @@
 from collections import deque
-
-dct = {}
+import unittest
 
 def incr_dict(dct, args):
     nodes = deque(args)
@@ -19,14 +18,37 @@ def incr_dict(dct, args):
                 curr[node] = {}
                 curr = curr[node]
     print dct
+    return dct
 
+dct = {}
+# incr_dict(dct, ('a', 'b', 'c'))
+# incr_dict(dct, ('a', 'b', 'c'))
+# incr_dict(dct, ('a', 'b', 'f'))
+# incr_dict(dct, ('a', 'r', 'f'))
+# incr_dict(dct, ('a', 'z'))
 
-incr_dict(dct, ('a', 'b', 'c'))
-incr_dict(dct, ('a', 'b', 'c'))
-incr_dict(dct, ('a', 'b', 'f'))
-incr_dict(dct, ('a', 'r', 'f'))
-incr_dict(dct, ('a', 'z'))
+# Testing
+class Tests(unittest.TestCase):
+    def testOne(self):
+        self.assertEqual(incr_dict(dct, ('a', 'b', 'c')), {'a': {'b': {'c': 1}}})
 
+    # def testTwo(self):
+    #     self.assertEqual(incr_dict(dct, ('a', 'b', 'c')), {'a': {'b': {'c': 2}}})
+
+    def testThree(self):
+        self.assertEqual(incr_dict(dct, ('a', 'b', 'f')), {'a': {'b': {'c': 2, 'f': 1}}})
+
+    # def testFour(self):
+    #     self.assertEqual(incr_dict(dct, ('a', 'r', 'f')),  {'a': {'r': {'f': 1}, 'b': {'c': 2, 'f': 1}}})
+    #
+    # def testFive(self):
+    #     self.assertEqual(incr_dict(dct, ('a', 'z')), {'a': {'r': {'f': 1}, 'b': {'c': 2,'f': 1}, 'z': 1}})
+
+def main():
+    unittest.main()
+
+if __name__ == '__main__':
+    main()
 
 
 
