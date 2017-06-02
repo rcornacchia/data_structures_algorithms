@@ -25,6 +25,7 @@ function buildTree(arr) {
             nodes[parentId].children.push(id);
         }
     });
+    console.log(root);
     return root;
 }
 
