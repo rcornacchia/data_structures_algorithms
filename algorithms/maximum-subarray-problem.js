@@ -1,12 +1,12 @@
-const arr = [1, 3, 2, 9, 3, 5, 4];
+const arr = [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7];
 
 const findMaxSubarray = (a, low, high) => {
-  console.log(high);
-
+  console.log(`finding max subarray with high: ${high}, and low: ${low}`);
   if (high == low) {
-    return (low, high, a[low]); // base case
+    return [low, high, a[low]]; // base case
   } else {
     const mid = Math.floor((low+high)/2);
+
     [leftLow, leftHigh, leftSum] = findMaxSubarray(a, low, mid);
     [rightLow, rightHigh, rightSum] = findMaxSubarray(a, mid+1, high);
     [crossLow, crossHigh, crossSum] = findMaxCrossingSubarray(a, low, mid, high);
@@ -18,9 +18,12 @@ const findMaxSubarray = (a, low, high) => {
 }
 
 const findMaxCrossingSubarray = (a, low, mid, high) => {
-  let maxLeft = 0,
-      maxRight = 0,
-      leftSum = -100,
+  console.log(`finding max crossing subarray with high: ${high}, and low: ${low}`);
+
+  let maxLeft,
+      maxRight,
+      leftSum = -1000000,
+      rightSum = -1000000,
       sum = 0;
 
   for (let i = mid; i > low; i--) {
@@ -41,4 +44,4 @@ const findMaxCrossingSubarray = (a, low, mid, high) => {
   return [maxLeft, maxRight, leftSum + rightSum];
 }
 
-console.log(findMaxSubarray(arr, 0, arr.length-1));
+console.log(findMaxSubarray(arr, 0, arr.length));
