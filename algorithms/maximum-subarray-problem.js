@@ -2,6 +2,7 @@
 const arr = [-23, 18, 20, -7, 12, -5];
 
 const findMaxSubarray = (a, low, high) => {
+  console.log(`finding max subarray with high: ${high}, and low: ${low}`);
   if (high == low) {
     return [low, high, a[low]]; // base case
   } else {
@@ -18,6 +19,8 @@ const findMaxSubarray = (a, low, high) => {
 }
 
 const findMaxCrossingSubarray = (a, low, mid, high) => {
+  console.log(`finding max crossing subarray with high: ${high}, mid: ${mid}, and low: ${low}`);
+
   let maxLeft,
       maxRight,
       leftSum = -Infinity,

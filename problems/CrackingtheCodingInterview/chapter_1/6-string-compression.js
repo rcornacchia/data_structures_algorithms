@@ -22,7 +22,7 @@ function compress(str) {
         }
     });
 
-    if (compressed.length < str.length) return str;
+    if (compressed.length > str.length) return str;
     return compressed;
 }
 
