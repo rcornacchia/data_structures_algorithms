@@ -11,6 +11,6 @@ function fibonacci(i) {
     return fibonacci(i-1) + fibonacci(i-2);
 }
 
-console.log(fibonacci(5));
-console.log(memoFibonacci(5, [0, 1]))
+console.log(fibonacci(43));
+console.log(memoFibonacci(43, [0, 1]))
 // 0 1 1 2 3 5
