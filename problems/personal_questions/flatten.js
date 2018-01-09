@@ -1,6 +1,6 @@
 function flatten(arr) {
     let stack = [];
-    while (arr.length) x.length ? arr.push(...x) : stack.push(x);
+    while (arr.length) arr.length ? arr.push(...arr) : stack.push(arr);
     return stack;
 }
 
